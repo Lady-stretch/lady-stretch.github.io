@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Lady Stretch Сыктывкар | Осознанный фитнес и растяжка</title>
-    <meta name="description" content="Запишитесь на пробное занятие за 455₽ в Lady Stretch Сыктывкар. Бережная растяжка и фитнес в мини-группах. Адреса: Советская 3 и Коммунистическая 77/2.">
+    <title>Lady Stretch Сыктывкар | Осознанный фитнес</title>
+    <meta name="description" content="Запишитесь на пробное занятие за 455₽ в Lady Stretch Сыктывкар. Бережная растяжка и фитнес в мини-группах.">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
     <style>
         :root {
             --accent-purple: #8E44AD;
-            --soft-pink: #FFD1DC;
             --deep-pink: #FF85A1;
             --text-main: #2C3E50;
             --glass-white: rgba(255, 255, 255, 0.85);
@@ -25,16 +24,15 @@
             background: linear-gradient(120deg, #ffffff 0%, #fff5f8 50%, #f9f0ff 100%);
             background-attachment: fixed;
             color: var(--text-main);
-            line-height: 1.5;
         }
 
         .container {
-            max-width: 900px; /* Компактная ширина */
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: minmax(140px, auto);
+            grid-auto-rows: minmax(120px, auto);
             gap: 15px;
         }
 
@@ -49,74 +47,53 @@
             flex-direction: column;
             justify-content: center;
             transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
         .bento-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
-        /* Шапка: Логотип СЛЕВА */
+        /* Шапка: лого слева */
         .hero { 
             grid-column: span 2; 
             flex-direction: row; 
             justify-content: flex-start; 
-            align-items: center; 
-            text-align: left;
+            align-items: center;
         }
+        .logo-img { max-width: 110px; height: auto; border-radius: 12px; }
+        .hero-text { margin-left: 20px; text-align: left; }
 
-        .logo-img {
-            max-width: 120px;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        .hero-text { margin-left: 25px; }
-
-        /* Блок с фото (О НАС) */
+        /* Блок с фото (ИСПРАВЛЕНО НА hero-bg.jpg) */
         .about { 
             grid-column: span 1; 
-            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('hero-image.jpg');
+            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .price { grid-column: span 1; background: var(--accent-purple); color: white; text-align: center; }
-        
         .directions-soft, .directions-active { grid-column: span 1; }
-        
         .clothing { grid-column: span 2; }
 
-        /* Нижняя кнопка (ИСПРАВЛЕНО) */
-        .cta-container {
-            grid-column: span 2;
-            display: flex;
+        /* Тонкая розовая кнопка-плитка */
+        .cta-box { 
+            grid-column: span 2; 
+            background: var(--deep-pink); 
+            color: white; 
+            padding: 15px;
+            min-height: 60px;
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
-            padding: 20px 0;
-        }
-
-        .cta-button {
-            background: var(--deep-pink);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
             font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 10px 20px rgba(255, 133, 161, 0.3);
-            transition: all 0.3s ease;
-            max-width: 320px;
-            width: 100%;
-            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
+        .cta-box:hover { background: #ff7091; }
 
-        .cta-button:hover {
-            background: #ff7091;
-            transform: scale(1.05);
-        }
-
-        /* Типографика */
-        h1 { font-weight: 300; font-size: 1.8rem; margin: 0; letter-spacing: -1px; }
+        h1 { font-weight: 300; font-size: 1.6rem; margin: 0; }
         h2 { font-weight: 600; font-size: 1.2rem; margin-top: 0; color: var(--accent-purple); }
         .price h2 { color: white; }
         
@@ -124,28 +101,27 @@
             width: 30px;
             height: 1px;
             background: var(--accent-purple);
-            margin: 15px 0;
+            margin: 12px 0;
         }
-
         .price .thin-line { background: white; margin: 10px auto; }
 
         .btn-white {
             background: white;
             color: var(--accent-purple);
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 5px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 600px) {
             .container { grid-template-columns: 1fr; }
             .hero { flex-direction: column; text-align: center; }
-            .hero-text { margin-left: 0; margin-top: 15px; }
-            .hero, .about, .price, .directions-soft, .directions-active, .clothing, .cta-container {
+            .hero-text { margin-left: 0; margin-top: 10px; }
+            .hero, .about, .price, .directions-soft, .directions-active, .clothing, .cta-box {
                 grid-column: span 1;
             }
         }
@@ -160,45 +136,43 @@
         <div class="hero-text">
             <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.6rem; color: #888; margin: 0;">Сыктывкар</p>
             <h1>Lady Stretch</h1>
-            <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Мягкий фитнес и растяжка</p>
+            <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">Осознанный фитнес и растяжка</p>
         </div>
     </header>
 
     <section class="bento-item about">
         <h2>Мини-группы</h2>
-        <p style="font-size: 0.85rem; margin: 0;">Внимание тренера каждой гостье. Занятия до 10 человек для любого возраста.</p>
+        <p style="font-size: 0.8rem; margin: 0;">Бережный подход и занятия до 10 человек для любого возраста.</p>
     </section>
 
     <section class="bento-item price">
-        <h2 style="margin-bottom: 5px;">Пробный визит</h2>
+        <h2 style="margin-bottom: 0;">Пробный визит</h2>
         <div class="thin-line"></div>
-        <div style="font-size: 2.5rem; font-weight: 300;">455₽</div>
+        <div style="font-size: 2.2rem; font-weight: 300; margin-bottom: 5px;">455₽</div>
         <a href="https://vk.com/im?sel=-221142875" target="_blank" class="btn-white">Записаться</a>
     </section>
 
     <section class="bento-item directions-soft">
         <div class="thin-line"></div>
         <h2>Спокойные</h2>
-        <p style="font-size: 0.8rem; margin: 0;">Здоровая спина, Пилатес, МФР, Sky Stretching, Йога релакс.</p>
+        <p style="font-size: 0.8rem; margin: 0;">Здоровая спина, Пилатес, МФР, Sky Stretching, Йога.</p>
     </section>
 
     <section class="bento-item directions-active">
         <div class="thin-line"></div>
         <h2>Активные</h2>
-        <p style="font-size: 0.8rem; margin: 0;">Body Sculpt, Табата, Функционал, Ягодицы+Пресс, Круговая.</p>
+        <p style="font-size: 0.8rem; margin: 0;">Body Sculpt, Табата, Функционал, Ягодицы+Пресс.</p>
     </section>
 
     <section class="bento-item clothing">
-        <h2>Ваш комфорт важнее брендов</h2>
-        <p style="font-size: 0.85rem; margin-bottom: 10px;">Приходите в любой удобной одежде. Мы за результат без стресса и гонки за формой.</p>
-        <p style="font-size: 0.75rem; opacity: 0.6; margin: 0;">ул. Советская, 3 | ул. Коммунистическая, 77/2</p>
+        <h2>Комфорт важнее брендов</h2>
+        <p style="font-size: 0.85rem; margin-bottom: 10px;">Приходите в любой удобной одежде, не сковывающей движения.</p>
+        <p style="font-size: 0.7rem; opacity: 0.6; margin: 0;">Советская, 3 | Коммунистическая, 77/2</p>
     </section>
 
-    <div class="cta-container">
-        <a href="https://vk.com/im?sel=-221142875" target="_blank" class="cta-button">
-            ЗАПИСАТЬСЯ В ВК →
-        </a>
-    </div>
+    <a href="https://vk.com/im?sel=-221142875" target="_blank" class="bento-item cta-box">
+        ЗАПИСАТЬСЯ В ВК →
+    </a>
 
 </div>
 
