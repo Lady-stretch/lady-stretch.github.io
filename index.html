@@ -7,31 +7,7 @@
     <meta name="yandex-verification" content="129a76c0710ebefc" />
     <title>Lady Stretch Сыктывкар | Студия растяжки и мягкого фитнеса</title>
     <meta name="description" content="Запишитесь на пробную тренировку за 455₽ в Lady Stretch Сыктывкар. Растяжка, йога, пилатес и функциональный фитнес в мини-группах. Советская 3, Коммунистическая 77/2.">
-    <meta name="keywords" content="растяжка сыктывкар, фитнес сыктывкар, йога сыктывкар, lady stretch сыктывкар, пилатес сыктывкар, похудение сыктывкар">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FitnessCenter",
-      "name": "Lady Stretch Сыктывкар",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "ул. Советская, 3",
-          "addressLocality": "Сыктывкар"
-        },
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "ул. Коммунистическая, 77/2",
-          "addressLocality": "Сыктывкар"
-        }
-      ],
-      "description": "Студия мягкого фитнеса и растяжки в Сыктывкаре. Мини-группы до 10 человек.",
-      "priceRange": "455RRR",
-      "telephone": "+7XXXXXXXXXX" 
-    }
-    </script>
-
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
@@ -50,7 +26,6 @@
             background: linear-gradient(120deg, #ffffff 0%, #fff5f8 50%, #f9f0ff 100%);
             background-attachment: fixed;
             color: var(--text-main);
-            /* Исправляем отклик на мобильных */
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
         }
@@ -80,15 +55,10 @@
             overflow: hidden;
             text-decoration: none;
             color: inherit;
-            /* Улучшаем клик на карточку */
-            touch-action: manipulation;
+            cursor: pointer;
         }
 
-        .bento-item:hover, .bento-item:active {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 15px 45px rgba(142, 68, 173, 0.12);
-        }
-
+        /* Обычная инфа (снизу) */
         .hover-desc {
             position: absolute;
             bottom: -100%;
@@ -104,9 +74,21 @@
             z-index: 10;
         }
 
-        .bento-item:hover .hover-desc, .bento-item:active .hover-desc { bottom: 0; }
+        /* Инфа сверху (для блока цены) */
+        .hover-desc.from-top {
+            bottom: auto;
+            top: -100%;
+            background: var(--deep-pink);
+        }
 
-        .hero { grid-column: span 2; flex-direction: row; justify-content: flex-start; align-items: center; }
+        /* Состояние когда инфа открыта (через класс или ховер) */
+        .bento-item.is-open .hover-desc:not(.from-top),
+        .bento-item:hover .hover-desc:not(.from-top) { bottom: 0; }
+
+        .bento-item.is-open .hover-desc.from-top,
+        .bento-item:hover .hover-desc.from-top { top: 0; }
+
+        .hero { grid-column: span 2; flex-direction: row; justify-content: flex-start; align-items: center; cursor: default; }
         .logo-img { max-width: 110px; height: auto; border-radius: 14px; }
         .hero-text { margin-left: 20px; text-align: left; }
 
@@ -133,7 +115,6 @@
             font-weight: 800;
             font-size: 1.2rem;
             text-transform: uppercase;
-            touch-action: manipulation;
         }
 
         h1 { font-weight: 400; font-size: 1.6rem; margin: 0; }
@@ -151,27 +132,12 @@
             margin-top: 5px;
             display: inline-block;
             text-decoration: none;
-            /* Поднимаем кнопку выше подсказки, чтобы она нажималась сразу */
             position: relative;
-            z-index: 20;
-            touch-action: manipulation;
+            z-index: 20; /* Кнопка всегда выше инфы */
         }
 
-        /* Стиль для ссылки внизу */
-        .bottom-nav {
-            text-align: center;
-            padding: 20px 0 40px;
-        }
-        .bottom-nav-link {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
-            transition: opacity 0.3s;
-        }
-        .bottom-nav-link:active {
-            opacity: 0.6;
-        }
+        .bottom-nav { text-align: center; padding: 20px 0 40px; }
+        .bottom-nav-link { color: #888; text-decoration: none; font-size: 0.85rem; }
 
         @media (max-width: 600px) {
             .container { grid-template-columns: 1fr; }
@@ -196,7 +162,7 @@
     <section class="bento-item about with-photo">
         <h2>Мини-группы</h2>
         <p style="font-size: 0.85rem; margin: 0;">Бережный подход к каждой.</p>
-        <div class="hover-desc">У нас комфортно всем: и новичкам, и профи. Группы до 10 человек, где тренер видит каждую.</div>
+        <div class="hover-desc">Группы до 10 человек. Тренер уделяет внимание каждой ученице, адаптируя нагрузку.</div>
     </section>
 
     <section class="bento-item price">
@@ -204,28 +170,27 @@
         <div class="thin-line"></div>
         <div style="font-size: 2.2rem; font-weight: 400; margin-bottom: 5px;">455₽</div>
         <a href="https://vk.com/im?sel=-221142875" target="_blank" class="btn-white">Записаться</a>
-        <div class="hover-desc" style="background: var(--deep-pink);">Включено: тренировка (50 мин), консультация и подбор направления.</div>
+        <div class="hover-desc from-top">Включено: тренировка (50 мин), консультация и подбор направления.</div>
     </section>
 
     <section class="bento-item directions-soft with-photo">
         <div class="thin-line"></div>
         <h2>Спокойные тренировки</h2>
         <p style="font-size: 0.85rem; margin: 0;">Здоровая спина, Пилатес, Йога, МФР.</p>
-        <div class="hover-desc">Пилатес и Стретчинг. Исправляем осанку и снимаем стресс после работы.</div>
+        <div class="hover-desc">Исправляем осанку, работаем над гибкостью и снимаем стресс без лишнего пота.</div>
     </section>
 
     <section class="bento-item directions-active with-photo">
         <div class="thin-line"></div>
         <h2>Активные тренировки</h2>
-        <p style="font-size: 0.85rem; margin: 0;">Табата, Подкачка, Ягодицы, Функционал.</p>
-        <div class="hover-desc">Жиросжигание и рельеф. Подкачка с элементами растяжки для стройного тела.</div>
+        <p style="font-size: 0.85rem; margin: 0;">Табата, Подкачка, Ягодицы.</p>
+        <div class="hover-desc">Жиросжигание и рельеф. Интенсивные занятия для тех, кто хочет результат быстрее.</div>
     </section>
 
     <section class="bento-item clothing">
         <h2>Ваш комфорт важнее брендов</h2>
         <p style="font-size: 0.85rem; margin-bottom: 10px;">Тренируйтесь в любой удобной одежде.</p>
-        <p style="font-size: 0.7rem; opacity: 0.6; margin: 0;">Сыктывкар: Советская, 3 | Коммунистическая, 77/2</p>
-        <div class="hover-desc">Мы за атмосферу поддержки. Просто будьте собой, мы позаботимся о результате!</div>
+        <div class="hover-desc">У нас нет дресс-кода. Главное — чтобы вам было удобно двигаться. Мы за атмосферу уюта!</div>
     </section>
 
     <a href="https://vk.com/im?sel=-221142875" target="_blank" class="bento-item cta-box">
@@ -236,6 +201,24 @@
 <div class="bottom-nav">
     <a href="https://lady-stretch.github.io/payment-hub/" class="bottom-nav-link">Узнать цены и абонементы —></a>
 </div>
+
+<script>
+    // Скрипт для удобного переключения инфы на смартфонах
+    document.querySelectorAll('.bento-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Если нажали на саму кнопку записи или ссылку, не закрываем карточку
+            if (e.target.classList.contains('btn-white')) return;
+
+            // Закрываем все остальные открытые карточки
+            document.querySelectorAll('.bento-item').forEach(el => {
+                if (el !== item) el.classList.remove('is-open');
+            });
+
+            // Переключаем текущую
+            this.classList.toggle('is-open');
+        });
+    });
+</script>
 
 </body>
 </html>
